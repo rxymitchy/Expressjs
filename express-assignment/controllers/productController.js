@@ -1,12 +1,12 @@
-// In-memory array to store products (for demonstration purposes)
+// In-memory array to store products 
 const products = [];
 
-// Controller function to get all products
+// get all products
 const getAllProducts = (req, res) => {
     res.json(products); // Respond with the list of products
 };
 
-// Controller function to get a single product by ID
+// get a single product by ID
 const getProductById = (req, res) => {
     const product = products.find(p => p.id === parseInt(req.params.id)); // Find product by ID
     if (!product) {
@@ -15,7 +15,7 @@ const getProductById = (req, res) => {
     res.json(product); // Respond with the found product
 };
 
-// Controller function to create a new product
+// create a new product
 const createProduct = (req, res) => {
     const newProduct = {
         id: products.length + 1, // Auto-generate an ID
@@ -26,7 +26,7 @@ const createProduct = (req, res) => {
     res.status(201).json(newProduct); // Respond with the new product and 201 status code
 };
 
-// Controller function to update a product by ID
+// update a product by ID
 const updateProduct = (req, res) => {
     const product = products.find(p => p.id === parseInt(req.params.id)); // Find product by ID
     if (!product) {
@@ -37,7 +37,7 @@ const updateProduct = (req, res) => {
     res.json(product); // Respond with the updated product
 };
 
-// Controller function to delete a product by ID
+// delete a product by ID
 const deleteProduct = (req, res) => {
     const productIndex = products.findIndex(p => p.id === parseInt(req.params.id)); // Find product index by ID
     if (productIndex === -1) {

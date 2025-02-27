@@ -1,12 +1,12 @@
-// In-memory array to store users (for demonstration purposes)
+// In-memory array to store users
 const users = [];
 
-// Controller function to get all users
+// get all users
 const getAllUsers = (req, res) => {
     res.json(users); // Respond with the list of users
 };
 
-// Controller function to get a single user by ID
+//get a single user by ID
 const getUserById = (req, res) => {
     const user = users.find(u => u.id === parseInt(req.params.id)); // Find user by ID
     if (!user) {
@@ -15,7 +15,7 @@ const getUserById = (req, res) => {
     res.json(user); // Respond with the found user
 };
 
-// Controller function to create a new user
+//create a new user
 const createUser = (req, res) => {
     const newUser = {
         id: users.length + 1, // Auto-generate an ID
@@ -26,7 +26,7 @@ const createUser = (req, res) => {
     res.status(201).json(newUser); // Respond with the new user and 201 status code
 };
 
-// Controller function to update a user by ID
+// update a user by ID
 const updateUser = (req, res) => {
     const user = users.find(u => u.id === parseInt(req.params.id)); // Find user by ID
     if (!user) {
@@ -37,7 +37,7 @@ const updateUser = (req, res) => {
     res.json(user); // Respond with the updated user
 };
 
-// Controller function to delete a user by ID
+// delete a user by ID
 const deleteUser = (req, res) => {
     const userIndex = users.findIndex(u => u.id === parseInt(req.params.id)); // Find user index by ID
     if (userIndex === -1) {
