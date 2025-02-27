@@ -39,6 +39,11 @@ app.use((req, res, next) =>{
     next(); //Pass control to next middleware
 });
 
+//query parameters
+app.get('/search', (req, res) => {
+    const query = req.query.q;
+    res.send(`Search results for: ${query}`);
+});
 
 //Swagger Configuration
 const swaggerOptions = {
